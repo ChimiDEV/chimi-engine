@@ -2,7 +2,43 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Math Engine (Debug)",
+      "label": "MacOS: Build Math Engine (Debug)",
+      "type": "shell",
+      "command": "clang++",
+      "args": [
+        "-std=c++17",
+        "-stdlib=libc++",
+        "-o",
+        "./ChimiMaths/build/debug/MathEngine.exe",
+        "./ChimiMaths/src/*.cpp",
+        "--debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "MacOS: Build Math Engine (Tests)",
+      "type": "shell",
+      "command": "clang++",
+      "args": [
+        "-I./_extensions/headers",
+        "-I./ChimiMaths/src",
+        "-std=c++17",
+        "-stdlib=libc++",
+        "-o",
+        "./ChimiMaths/build/test/MathEngine.exe",
+        "./ChimiMaths/test/*.cpp",
+        "./ChimiMaths/src/ChimiMaths*.cpp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Linux: Build Math Engine (Debug)",
       "type": "shell",
       "command": "g++",
       "args": [
@@ -18,7 +54,7 @@
       }
     },
     {
-      "label": "Build Math Engine (Tests)",
+      "label": "Linux: Build Math Engine (Tests)",
       "type": "shell",
       "command": "g++",
       "args": [
@@ -36,9 +72,7 @@
     {
       "label": "Test Math Engine",
       "type": "shell",
-      "dependsOn": [
-        "Build Math Engine (Tests)"
-      ],
+      "dependsOn": ["Build Math Engine (Tests)"],
       "command": "./ChimiMaths/build/test/MathEngine.exe",
       "group": "test"
     }

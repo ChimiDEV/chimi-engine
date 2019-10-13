@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Math Engine",
+      "name": "Linux: Debug Math Engine",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/ChimiMaths/build/debug/MathEngine.exe",
@@ -15,7 +15,7 @@
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "preLaunchTask": "Build Math Engine (Debug)",
+      "preLaunchTask": "Linux: Build Math Engine (Debug)",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -23,6 +23,24 @@
           "ignoreFailures": true
         }
       ]
+    },
+    {
+      "name": "MacOS: Debug Math Engine",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/ChimiMaths/build/debug/MathEngine",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "MacOS: Build Math Engine (Debug)",
+      "logging": {
+        "trace": true,
+        "traceResponse": true,
+        "engineLogging": true
+      }
     }
   ]
 }
