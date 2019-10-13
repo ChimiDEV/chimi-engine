@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Math Engine (Debug)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++11",
+        "-g",
+        "-o",
+        "./ChimiMaths/build/debug/MathEngine.exe",
+        "./ChimiMaths/src/*.cpp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build Math Engine (Tests)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-I./_extensions/headers",
+        "-I./ChimiMaths/src",
+        "-std=c++11",
+        "-g",
+        "-o",
+        "./ChimiMaths/build/test/MathEngine.exe",
+        "./ChimiMaths/test/*.cpp",
+        "./ChimiMaths/src/ChimiMaths*.cpp"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Test Math Engine",
+      "type": "shell",
+      "dependsOn": [
+        "Build Math Engine (Tests)"
+      ],
+      "command": "./ChimiMaths/build/test/MathEngine.exe",
+      "group": "test"
+    }
+  ]
+}
